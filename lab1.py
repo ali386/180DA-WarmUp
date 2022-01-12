@@ -19,7 +19,7 @@ while(True):
 
     lower_thresh = np.array([110, 50, 50]) #light blue
     upper_thresh = np.array([130, 255, 255]) #dark blue
-   
+
     mask = cv2.inRange(hsv, lower_thresh, upper_thresh)
     _, mask = cv2.threshold(mask, 254, 255, cv2.THRESH_BINARY)
     contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)

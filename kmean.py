@@ -1,3 +1,12 @@
+#REFERENCES
+#Webcam video: https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
+#K-Means: https://code.likeagirl.io/finding-dominant-colour-on-an-image-b4e075f98097
+#Drawing contours: https://docs.opencv.org/4.x/dd/d49/tutorial_py_contour_features.html
+
+#IMPROVEMENTS
+#Some improvements I made included finding the dominant color for a continuous video shot using a laptop webcam whereas the original code only printed out the dominant color graphic for a single image. 
+#However, in order to improve the speed of the program, only a 100x100 pixel box is processed to determine the dominant color. The box is also printed on the video feed in order to show the user where it is taking the color input from.
+
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
