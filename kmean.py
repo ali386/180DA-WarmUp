@@ -34,24 +34,21 @@ cap = cv2.VideoCapture(0)
 while(True):
     # Capture frame-by-frame
     ret, img = cap.read()
-    roi = img[250:470, 530:750]
+    roi = img[310:410, 590:690]
     roi = roi.reshape((roi.shape[0] * roi.shape[1],3)) #represent as row*column,channel number
     clt = KMeans(n_clusters=3) #cluster number
     clt.fit(roi)
-    cv2.imshow('webcam image', img)
-    
-    # Display the resulting frame
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
 
+    plt.ion()
     hist = find_histogram(clt)
     bar = plot_colors2(hist, clt.cluster_centers_)
-    
     plt.axis("off")
     plt.imshow(bar)
     plt.show()
-    #cv2.imshow('webcam image', img)
-    #cv2.rectangle(img, (250, 530), (470, 750), (0, 255, 0), 3)
+    
+    img = cv2.rectangle(img, (410, 310), (690, 590), (0, 255, 0), 3)
+    cv2.imshow('webcam image', img)
+    
     # Display the resulting frame
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
